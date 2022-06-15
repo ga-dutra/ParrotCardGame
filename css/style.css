@@ -1,0 +1,46 @@
+body {
+  background-color: #eef9bf;
+}
+
+.title {
+  display: flex;
+  justify-content: center;
+  margin-top: 40px;
+  height: 63px;
+}
+
+.title h1 {
+  text-align: center;
+  font-family: Roboto;
+  font-size: 56px;
+  line-height: 65.63px;
+  font-weight: 700;
+  color: #75b79e;
+  font-style: normal;
+  letter-spacing: 0.005em;
+}
+
+.carta {
+  width: 117px;
+  height: 146px;
+  background-color: #a7e9af;
+  border: 1px solid #99cea8;
+  box-sizing: border-box;
+  border-radius: 5px;
+  position: relative;
+  margin-left: 40px;
+}
+
+.carta img {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  top: 24px;
+  left: 10px;
+}
+
+.tabuleiro {
+  display: flex;
+  margin-left: 20px;
+  flex-wrap: wrap;
+}
