@@ -6,6 +6,8 @@ do {
   }
 } while (num_cartas % 2 !== 0 || num_cartas < 4 || num_cartas > 15);
 
+// Seção da montagem do tabuleiro
+let tabuleiro_jogo = [];
 let tabuleiro_opcoes = [
   `<div onclick="viraCarta(this)"; class="carta frente">
 <img src="/arquivos/front.png" alt="Parrot">
@@ -47,7 +49,7 @@ function embaralhaTabuleiro(tabuleiro) {
   // Retornando array com aleatoriedade
   return tabuleiro;
 }
-let tabuleiro_jogo = [];
+
 function criaTabuleiro(n_cartas) {
   for (let j = 0; j < n_cartas / 2; j++) {
     tabuleiro_jogo.push(tabuleiro_opcoes[j]);
@@ -61,12 +63,61 @@ function criaTabuleiro(n_cartas) {
 }
 
 criaTabuleiro(num_cartas);
-// classes frente e face
-// .virada.frente { transform: rotateY(180deg)}
-// transition: all .5s;
+
+// Seção da lógica de seleção de cartas
+let carta1 = "";
+let carta2 = "";
+let auxiliar = 0; // função de verificar se a carta clicada é a primeira ou segunda na comparação
+let num_jogadas = 0;
+let num_acertos = 0;
 
 function viraCarta(elemento) {
-  elemento.classList.toggle("verso");
-  elemento.classList.toggle("frente");
-  elemento.classList.toggle("virada");
+  switch (auxiliar) {
+    case 0:
+      elemento.classList.toggle("verso");
+      elemento.classList.toggle("frente");
+      elemento.classList.toggle("virada");
+      elemento.classList.toggle("inclicavel"); // impede que a carta 1 seja reclicada
+      carta1 = elemento;
+      auxiliar++;
+      num_jogadas++;
+      break;
+    case 1:
+      elemento.classList.toggle("verso");
+      elemento.classList.toggle("frente");
+      elemento.classList.toggle("virada");
+      carta1.classList.toggle("inclicavel"); // Retoma a 'clicabilidade'da carta 1
+      carta2 = elemento;
+      auxiliar--;
+      num_jogadas++;
+      document.querySelector(".tabuleiro").classList.add("inclicavel"); // impede que o resto do tabuleiro seja clicável enquanto as cartas são comparadas
+      setTimeout(comparaCartas, 1000);
+      break;
+  }
+}
+
+function comparaCartas() {
+  if (carta1.innerHTML === carta2.innerHTML) {
+    carta1.classList.add("inclicavel");
+    carta2.classList.add("inclicavel");
+    document.querySelector(".tabuleiro").classList.remove("inclicavel");
+    num_acertos++;
+    verificaFimdoJogo();
+  } else {
+    // desvira primeira carta
+    carta1.classList.toggle("verso");
+    carta1.classList.toggle("frente");
+    carta1.classList.toggle("virada");
+    // desvira segunda carta
+    carta2.classList.toggle("verso");
+    carta2.classList.toggle("frente");
+    carta2.classList.toggle("virada");
+    document.querySelector(".tabuleiro").classList.remove("inclicavel");
+  }
+}
+
+function verificaFimdoJogo() {
+  if (num_acertos == num_cartas / 2) {
+    alert(`Você ganhou em ${num_jogadas} jogadas!`);
+  }
 }

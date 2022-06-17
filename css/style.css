@@ -20,6 +20,13 @@ body {
   letter-spacing: 0.005em;
 }
 
+.tabuleiro {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  margin-right: 15px;
+}
+
 .carta {
   width: 117px;
   height: 146px;
@@ -31,7 +38,7 @@ body {
   margin-left: 40px;
   margin-top: 40px;
   cursor: pointer;
-  transition: all 0.75s;
+  transition: all 1.5s;
 }
 
 .carta img {
@@ -50,22 +57,20 @@ body {
   left: 20px;
 }
 
-.tabuleiro {
-  display: flex;
-  margin-left: 20px;
-  flex-wrap: wrap;
-}
-
 .frente img:nth-child(1) {
   opacity: 1;
-  transition: all 1.5s;
+  transition: all 3s;
 }
 
 .verso img:nth-child(2) {
   opacity: 1;
-  transition: all 1.5s;
+  transition: all 3s;
 }
 
 .virada {
   transform: rotateY(180deg);
+}
+
+.inclicavel {
+  pointer-events: none;
 }

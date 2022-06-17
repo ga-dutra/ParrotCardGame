@@ -1,5 +1,13 @@
 @media (max-width: 550px) {
+  .title {
+    margin-bottom: 50px;
+  }
   .carta {
-    margin-top: 150px;
+    margin-top: 30px;
+  }
+  .tabuleiro {
+    margin-left: -20px;
+    justify-content: center;
+    margin-bottom: 30px;
   }
 }
