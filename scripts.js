@@ -135,8 +135,13 @@ function verificaFimdoJogo() {
         `Você ganhou em ${num_jogadas} jogadas e em ${minutos} minutos e ${segundos} segundos!`
       );
     }
-    // let resposta = String(prompt("Você quer jogar de novo? (sim / não)"));
-    // recomecaJogo(resposta);
+    let resposta = String(prompt("Você quer jogar de novo? (sim / não)"));
+    if (resposta === "sim") {
+      recomecaJogo();
+    }
+    if (resposta === "não") {
+      alert("Obrigado por jogar!");
+    }
   }
 }
 
@@ -154,9 +159,22 @@ function contaTempo() {
   }
 }
 
-function recomecaJogo(resposta) {
-  if (resposta === "sim") {
-    numeroCartas();
-    document.querySelector(".tabuleiro").innerHTML = "";
-  }
+function recomecaJogo() {
+  numeroCartas();
+  zeraVariaveis();
+  criaTabuleiro(num_cartas);
+}
+
+function zeraVariaveis() {
+  document.querySelector(".tabuleiro").innerHTML = "";
+  tabuleiro_jogo = [];
+  carta1 = "";
+  carta2 = "";
+  auxiliar = 0;
+  num_jogadas = 0;
+  num_acertos = 0;
+  segundos = 0;
+  minutos = 0;
+  document.querySelector(".segundos").innerHTML = "00";
+  document.querySelector(".minutos").innerHTML = "00";
 }
