@@ -12,32 +12,32 @@ numeroCartas();
 let tabuleiro_jogo = [];
 let tabuleiro_opcoes = [
   `<div onclick="viraCarta(this)"; class="carta frente">
-<img src="/arquivos/front.png" alt="Parrot">
-<img src="/arquivos/bobrossparrot.gif">
+<img src="./arquivos/front.png" alt="Parrot">
+<img src="./arquivos/bobrossparrot.gif">
 </div>`,
   `<div onclick="viraCarta(this)"; class="carta frente">
-<img src="/arquivos/front.png" alt="Parrot">
-<img src="/arquivos/explodyparrot.gif">
+<img src="./arquivos/front.png" alt="Parrot">
+<img src="./arquivos/explodyparrot.gif">
 </div>`,
   `<div onclick="viraCarta(this)"; class="carta frente">
-<img src="/arquivos/front.png" alt="Parrot">
-<img src="/arquivos/fiestaparrot.gif">
+<img src="./arquivos/front.png" alt="Parrot">
+<img src="./arquivos/fiestaparrot.gif">
 </div>`,
   `<div onclick="viraCarta(this)"; class="carta frente">
-<img src="/arquivos/front.png" alt="Parrot">
-<img src="/arquivos/metalparrot.gif">
+<img src="./arquivos/front.png" alt="Parrot">
+<img src="./arquivos/metalparrot.gif">
 </div>`,
   `<div onclick="viraCarta(this)"; class="carta frente">
-<img src="/arquivos/front.png" alt="Parrot">
-<img src="/arquivos/revertitparrot.gif">
+<img src="./arquivos/front.png" alt="Parrot">
+<img src="./arquivos/revertitparrot.gif">
 </div>`,
   `<div onclick="viraCarta(this)"; class="carta frente">
-<img src="/arquivos/front.png" alt="Parrot">
-<img src="/arquivos/tripletsparrot.gif">
+<img src="./arquivos/front.png" alt="Parrot">
+<img src="./arquivos/tripletsparrot.gif">
 </div>`,
   `<div onclick="viraCarta(this)"; class="carta frente">
-<img src="/arquivos/front.png" alt="Parrot">
-<img src="/arquivos/unicornparrot.gif">
+<img src="./arquivos/front.png" alt="Parrot">
+<img src="./arquivos/unicornparrot.gif">
 </div>`,
 ];
 function embaralhaTabuleiro(tabuleiro) {

@@ -24,3 +24,13 @@
     margin: 0 16px;
   }
 }
+
+@media (max-width: 638px) and (min-width: 551px) {
+  .title {
+    margin-bottom: 60px;
+  }
+  .relogio_container {
+    top: 90px;
+    right: 38px;
+  }
+}
