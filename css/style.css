@@ -7,6 +7,7 @@ body {
   justify-content: center;
   margin-top: 40px;
   height: 63px;
+  position: relative;
 }
 
 .title h1 {
@@ -21,24 +22,28 @@ body {
 }
 
 .tabuleiro {
+  width: 100%;
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  margin-right: 15px;
+  justify-content: center;
+  margin-right: 40px;
+  margin-bottom: 30px;
 }
 
 .carta {
   width: 117px;
   height: 146px;
   background-color: #a7e9af;
-  border: 1px solid #99cea8;
+  border: 2px solid #99cea8;
   box-sizing: border-box;
   border-radius: 5px;
   position: relative;
-  margin-left: 40px;
+  margin: 0 20px;
   margin-top: 40px;
   cursor: pointer;
-  transition: all 1.5s;
+  transition: all 1s;
+  box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.25);
 }
 
 .carta img {
@@ -59,12 +64,10 @@ body {
 
 .frente img:nth-child(1) {
   opacity: 1;
-  transition: all 3s;
 }
 
 .verso img:nth-child(2) {
   opacity: 1;
-  transition: all 3s;
 }
 
 .virada {
@@ -73,4 +76,28 @@ body {
 
 .inclicavel {
   pointer-events: none;
+}
+
+.relogio_container {
+  width: 60px;
+  height: 30px;
+  background-color: #a7e9af;
+  border: 2px solid #99cea8;
+  border-radius: 5px;
+  text-align: center;
+  position: absolute;
+  top: 62px;
+  right: 85px;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+  z-index: 5;
+  font-family: Roboto;
+  font-weight: 500;
+  box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.25);
+}
+
+.contador {
+  display: flex;
 }

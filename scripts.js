@@ -1,11 +1,13 @@
 let num_cartas = 0;
-do {
-  num_cartas = Number(prompt("Com quantas cartas você quer jogar?"));
-  if (num_cartas % 2 !== 0 || num_cartas < 4 || num_cartas > 15) {
-    alert("O número de cartas deve ser par e estar contido entre 4 e 14!");
-  }
-} while (num_cartas % 2 !== 0 || num_cartas < 4 || num_cartas > 15);
-
+function numeroCartas() {
+  do {
+    num_cartas = Number(prompt("Com quantas cartas você quer jogar?"));
+    if (num_cartas % 2 !== 0 || num_cartas < 4 || num_cartas > 15) {
+      alert("O número de cartas deve ser par e estar contido entre 4 e 14!");
+    }
+  } while (num_cartas % 2 !== 0 || num_cartas < 4 || num_cartas > 15);
+}
+numeroCartas();
 // Seção da montagem do tabuleiro
 let tabuleiro_jogo = [];
 let tabuleiro_opcoes = [
@@ -81,6 +83,9 @@ function viraCarta(elemento) {
       carta1 = elemento;
       auxiliar++;
       num_jogadas++;
+      if (document.querySelector(".segundos").innerHTML === "00") {
+        idInterval = setInterval(contaTempo, 1000);
+      }
       break;
     case 1:
       elemento.classList.toggle("verso");
@@ -118,6 +123,40 @@ function comparaCartas() {
 
 function verificaFimdoJogo() {
   if (num_acertos == num_cartas / 2) {
-    alert(`Você ganhou em ${num_jogadas} jogadas!`);
+    clearInterval(idInterval);
+    if (minutos == 0) {
+      alert(`Você ganhou em ${num_jogadas} jogadas e em ${segundos} segundos!`);
+    } else if (minutos == 1) {
+      alert(
+        `Você ganhou em ${num_jogadas} jogadas e em ${minutos} minuto e ${segundos} segundos!`
+      );
+    } else {
+      alert(
+        `Você ganhou em ${num_jogadas} jogadas e em ${minutos} minutos e ${segundos} segundos!`
+      );
+    }
+    // let resposta = String(prompt("Você quer jogar de novo? (sim / não)"));
+    // recomecaJogo(resposta);
+  }
+}
+
+let segundos = 0;
+let minutos = 0;
+function contaTempo() {
+  segundos++;
+  if (Number(document.querySelector(".segundos").innerHTML) < 59) {
+    document.querySelector(".segundos").innerHTML = segundos;
+  } else if (Number(document.querySelector(".segundos").innerHTML) == 59) {
+    segundos -= 60;
+    minutos++;
+    document.querySelector(".segundos").innerHTML = segundos;
+    document.querySelector(".minutos").innerHTML = minutos;
+  }
+}
+
+function recomecaJogo(resposta) {
+  if (resposta === "sim") {
+    numeroCartas();
+    document.querySelector(".tabuleiro").innerHTML = "";
   }
 }
